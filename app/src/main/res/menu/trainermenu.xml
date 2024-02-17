@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/hometrainer"
+        android:icon="@drawable/baseline_calendar_month_24"
+        android:title="Schedule"
+        app:itemIconTint="@color/black">
+    </item>
+    <item android:id="@+id/progress"
+        android:icon="@drawable/baseline_auto_graph_24"
+        android:title="Track Progress"
+        app:itemIconTint="@color/black">
+    </item>
+    <item android:id="@+id/bookedusersrv"
+        android:icon="@drawable/baseline_person_24"
+        android:title="AvailableUsers"
+        app:itemIconTint="@color/black">
+    </item>
+    <item android:id="@+id/schedulemanage"
+        android:title="Create Workout and Meal"
+        android:icon="@drawable/arm"
+        app:itemIconTint="@color/black"></item>
+    <item android:id="@+id/profiletrainer"
+        android:title="Profile"
+        android:icon="@drawable/baseline_person_pin_24"
+        app:itemIconTint="@color/black"></item>
+</menu>

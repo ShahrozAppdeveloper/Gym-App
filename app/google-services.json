@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "712355927438",
+    "project_id": "power-strength-26bdb",
+    "storage_bucket": "power-strength-26bdb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:712355927438:android:8ab083b6d3164398f980df",
+        "android_client_info": {
+          "package_name": "com.example.powerstrentgh"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "712355927438-elf7b3cq5j1k0eqlq9et3iv4jdt2d12v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuvfDqDuWgztue_LslaVnXh__37UgVfG0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "712355927438-elf7b3cq5j1k0eqlq9et3iv4jdt2d12v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
