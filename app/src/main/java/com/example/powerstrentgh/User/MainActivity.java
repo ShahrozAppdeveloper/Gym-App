@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 
 import com.example.powerstrentgh.Activity.ForgotpasswordActivity;
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     String Currentuser;
     EditText edemail,edpass;
     TextView tvforgotpass,tvsignup;
-    Button btnlogin;
+    CardView btnlogin;
     ProgressDialog dialog;
     DatabaseReference databaseReference;
     PrefManager prefManager;
@@ -63,19 +64,19 @@ public class MainActivity extends AppCompatActivity {
     }
     private void Ids(){
 //        spinner = findViewById(R.id.spinner);
-        edemail=findViewById(R.id.email);
-        edpass=findViewById(R.id.pass);
-        tvforgotpass=findViewById(R.id.textView3);
+        edemail=findViewById(R.id.emailid);
+        edpass=findViewById(R.id.passwordID);
+//        tvforgotpass=findViewById(R.id.textView3);
         btnlogin=findViewById(R.id.button);
         tvsignup=findViewById(R.id.textView6);
     }
     private void clickListener(){
-        tvforgotpass.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), ForgotpasswordActivity.class));
-            }
-        });
+//        tvforgotpass.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(getApplicationContext(), ForgotpasswordActivity.class));
+//            }
+//        });
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -46,7 +46,8 @@
             android:exported="true" />
         <activity
             android:name=".User.Signup"
-            android:exported="true" />
+            android:exported="true">
+        </activity>
         <activity
             android:name=".User.Front"
             android:exported="true">

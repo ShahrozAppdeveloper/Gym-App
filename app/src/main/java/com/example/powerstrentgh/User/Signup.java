@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 
 import com.example.powerstrentgh.ModelCLass.CurrentStatusDetails;
@@ -36,7 +37,7 @@ public class Signup extends AppCompatActivity {
     TextView tvlogin;
     Spinner spinner;
     String currentstatus;
-    Button btnSignup;
+    CardView btnSignup;
     private FirebaseAuth mAuth;
     EditText edFname,edemail,edpass;
     ProgressDialog dialog;
@@ -75,9 +76,8 @@ public class Signup extends AppCompatActivity {
         tvlogin=findViewById(R.id.tvsign);
         spinner = findViewById(R.id.spinner);
         btnSignup=findViewById(R.id.appCompatButton3);
-        edFname=findViewById(R.id.name);
-        edemail=findViewById(R.id.emailcreate);
-        edpass=findViewById(R.id.pass);
+        edemail=findViewById(R.id.emailid);
+        edpass=findViewById(R.id.passwordID);
     }
     private void clicklistener(){
         tvlogin.setOnClickListener(new View.OnClickListener() {
