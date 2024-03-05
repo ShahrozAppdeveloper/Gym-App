@@ -1,5 +1,6 @@
 package com.example.powerstrentgh.User;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Build;
@@ -20,6 +21,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 
+import com.example.powerstrentgh.Activity.ForgotpasswordActivity;
+import com.example.powerstrentgh.Developer.TrainerPanel.TrainerCreateProfileActivity;
+import com.example.powerstrentgh.Developer.UserPanel.UserCreateProfileActivity;
 import com.example.powerstrentgh.ModelCLass.CurrentStatusDetails;
 import com.example.powerstrentgh.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -34,12 +38,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 
 public class Signup extends AppCompatActivity {
-    TextView tvlogin;
+    TextView tvlogin, forgetPassword;
     Spinner spinner;
     String currentstatus;
     CardView btnSignup;
     private FirebaseAuth mAuth;
-    EditText edFname,edemail,edpass;
+    EditText edemail,edpass;
     ProgressDialog dialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +59,7 @@ public class Signup extends AppCompatActivity {
         clicklistener();
 
         ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add("Trainner");
+        arrayList.add("Trainer");
         arrayList.add("User");
 //        arrayList.add("Admin");
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, arrayList);
@@ -71,6 +75,14 @@ public class Signup extends AppCompatActivity {
             public void onNothingSelected(AdapterView <?> parent) {
             }
         });
+
+        forgetPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Signup.this, ForgotpasswordActivity.class));
+            }
+        });
+
     }
     private void Ids(){
         tvlogin=findViewById(R.id.tvsign);
@@ -78,6 +90,7 @@ public class Signup extends AppCompatActivity {
         btnSignup=findViewById(R.id.appCompatButton3);
         edemail=findViewById(R.id.emailid);
         edpass=findViewById(R.id.passwordID);
+        forgetPassword = findViewById(R.id.forgetPasswordTextView);
     }
     private void clicklistener(){
         tvlogin.setOnClickListener(new View.OnClickListener() {
@@ -89,8 +102,7 @@ public class Signup extends AppCompatActivity {
         btnSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(edFname.getText().toString().isEmpty()||
-                        edpass.getText().toString().isEmpty()||
+                if(edpass.getText().toString().isEmpty()||
                         edemail.getText().toString().isEmpty()
                 ){
                     Toast.makeText(Signup.this, "Enter Detail please", Toast.LENGTH_SHORT).show();
@@ -104,14 +116,14 @@ public class Signup extends AppCompatActivity {
                     dialog = new ProgressDialog(Signup.this);
                     dialog.setMessage("please wait...");
                     dialog.show();
-                    Signup(edemail.getText().toString(),edpass.getText().toString());
+                    Signup(edemail.getText().toString(),edpass.getText().toString(), currentstatus);
 
                 }
             }
         });
 
     }
-    private void Signup(String email,String pass){
+    private void Signup(String email,String pass, String currentRole){
         mAuth = FirebaseAuth.getInstance();
         mAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
@@ -119,11 +131,21 @@ public class Signup extends AppCompatActivity {
                 if (task.isSuccessful()){
                     FirebaseUser user = mAuth.getCurrentUser();
                     String uid = user.getUid();
-                    Intent intent=new Intent(getApplicationContext(),MainActivity.class);
-                    intent.putExtra("Status",currentstatus);
-                    Toast.makeText(Signup.this, "welcome"+" "+currentstatus.toString(), Toast.LENGTH_SHORT).show();
-                    startActivity(intent);
-                    AddUSerDataToRealtime(uid,edFname.getText().toString(),
+
+                    if (currentRole.equals("User")){
+                        Intent intent=new Intent(getApplicationContext(), UserCreateProfileActivity.class);
+                        startActivity(intent);
+                    } else if (currentRole.equals("Trainer")) {
+                        Intent intent=new Intent(getApplicationContext(), TrainerCreateProfileActivity.class);
+                        startActivity(intent);
+                    }
+//                    Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+//                    intent.putExtra("Status",currentstatus);
+                    Toast.makeText(Signup.this, "welcome"+" "+currentRole.toString(), Toast.LENGTH_SHORT).show();
+
+                    String demoName = "Developer";
+
+                    AddUSerDataToRealtime(uid,demoName,
                             edemail.getText().toString(),
                             edpass.getText().toString());
                     dialog.dismiss();

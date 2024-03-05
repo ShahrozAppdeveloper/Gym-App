@@ -2,6 +2,7 @@ package com.example.powerstrentgh.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,7 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class ForgotpasswordActivity extends AppCompatActivity {
 
-    Button Forgot;
+    CardView Forgot;
     EditText foremail;
     String emails;
 
@@ -26,8 +27,8 @@ public class ForgotpasswordActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgotpassword);
-        Forgot=findViewById(R.id.reset);
-        foremail=findViewById(R.id.forgotpass);
+        Forgot=findViewById(R.id.sendemaillinkbuttonid);
+        foremail=findViewById(R.id.forgetemailid);
         Forgot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
