@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,11 +16,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 
-import com.example.powerstrentgh.Activity.ForgotpasswordActivity;
+import com.example.powerstrentgh.Developer.TrainerPanel.TrainerCreateProfileActivity;
+import com.example.powerstrentgh.Developer.UserPanel.UserCreateProfileActivity;
 import com.example.powerstrentgh.ModelCLass.CurrentStatusDetails;
 import com.example.powerstrentgh.R;
 import com.example.powerstrentgh.SharedPrefPkg.PrefManager;
-import com.example.powerstrentgh.Trainner.TrainnerProfileActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -49,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         // get value current value
         Intent intent = getIntent();
-        Currentuser = intent.getStringExtra("Status");
+        Currentuser = intent.getStringExtra("status");
         prefManager=new PrefManager(this);
         // calling method()
         Ids();
@@ -118,16 +117,16 @@ public class MainActivity extends AppCompatActivity {
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             CurrentStatusDetails currentStatusDetails= snapshot.getValue(CurrentStatusDetails.class);
                             System.out.println("user status______________________"+currentStatusDetails.getCurentstatus());
-                            if (currentStatusDetails.getCurentstatus().equals("Trainner")){
-                                prefManager.setCurrentstatus("Trainner");
+                            if (currentStatusDetails.getCurentstatus().equals("Trainer")){
+                                prefManager.setCurrentstatus("Trainer");
                                 prefManager.setUserID(userId);
-                                Intent intent=new Intent(getApplicationContext(),TrainnerProfileActivity.class);
+                                Intent intent=new Intent(getApplicationContext(), TrainerCreateProfileActivity.class);
                                 startActivity(intent);
                                 //next proccess
                             }else if (currentStatusDetails.getCurentstatus().equals("User")) {
                                 prefManager.setCurrentstatus("User");
                                 prefManager.setUserID(userId);
-                                Intent intent = new Intent(getApplicationContext(), GoalActivity.class);
+                                Intent intent = new Intent(getApplicationContext(), UserCreateProfileActivity.class);
                                 startActivity(intent);
                                 // next 2nd step
                             }
@@ -171,25 +170,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        PrefManager prefManager1= new PrefManager(getApplicationContext());
-        if (prefManager1.getCurrentstatus().equals("Trainner")){
-            //step 1.
-            Intent intent=new Intent(getApplicationContext(), TrainnerProfileActivity.class);
-            startActivity(intent);
-        }else if(prefManager1.getCurrentstatus().equals("User")) {
-            Intent intent = new Intent(getApplicationContext(), UserProfileActivity.class);
-            startActivity(intent);
-        }
-            // step 2
-//        }else if (prefManager1.getCurrentstatus().equals("Admin")){
-//            //step 2
-//            Intent intent=new Intent(getApplicationContext(), AdminDashboard.class);
-//            startActivity(intent);
-//        }
-    }
+
     @Override
     public void onBackPressed() {
         // Add your code here to handle the back button press

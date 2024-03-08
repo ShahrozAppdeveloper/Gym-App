@@ -12,6 +12,12 @@
         android:theme="@style/Theme.PowerStrentgh"
         tools:targetApi="31">
         <activity
+            android:name=".Developer.UserPanel.UserDashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Developer.TrainerPanel.TrainnerDashboardActivity"
+            android:exported="false" />
+        <activity
             android:name=".Developer.TrainerPanel.TrainerCreateProfileActivity"
             android:exported="false" />
         <activity

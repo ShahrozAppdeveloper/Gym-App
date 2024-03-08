@@ -1,12 +1,11 @@
 package com.example.powerstrentgh.ModelCLass;
 
 public class CurrentStatusDetails {
-    String UerID,curentstatus,Fullname,Email,Passowrd;
+    String UerID,curentstatus,Email,Passowrd;
 
-    public CurrentStatusDetails(String uerID, String curentstatus, String fullname, String email, String passowrd) {
+    public CurrentStatusDetails(String uerID, String curentstatus, String email, String passowrd) {
         UerID = uerID;
         this.curentstatus = curentstatus;
-        Fullname = fullname;
         Email = email;
         Passowrd = passowrd;
     }
@@ -30,13 +29,7 @@ public class CurrentStatusDetails {
         this.curentstatus = curentstatus;
     }
 
-    public String getFullname() {
-        return Fullname;
-    }
 
-    public void setFullname(String fullname) {
-        Fullname = fullname;
-    }
 
     public String getEmail() {
         return Email;

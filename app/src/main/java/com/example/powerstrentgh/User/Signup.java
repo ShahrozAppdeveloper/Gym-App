@@ -26,6 +26,7 @@ import com.example.powerstrentgh.Developer.TrainerPanel.TrainerCreateProfileActi
 import com.example.powerstrentgh.Developer.UserPanel.UserCreateProfileActivity;
 import com.example.powerstrentgh.ModelCLass.CurrentStatusDetails;
 import com.example.powerstrentgh.R;
+import com.example.powerstrentgh.SharedPrefPkg.PrefManager;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -131,21 +132,12 @@ public class Signup extends AppCompatActivity {
                 if (task.isSuccessful()){
                     FirebaseUser user = mAuth.getCurrentUser();
                     String uid = user.getUid();
+                    Intent obj =new Intent(getApplicationContext(), MainActivity.class);
+                    obj.putExtra("status",currentstatus);
+                    startActivity(obj);
 
-                    if (currentRole.equals("User")){
-                        Intent intent=new Intent(getApplicationContext(), UserCreateProfileActivity.class);
-                        startActivity(intent);
-                    } else if (currentRole.equals("Trainer")) {
-                        Intent intent=new Intent(getApplicationContext(), TrainerCreateProfileActivity.class);
-                        startActivity(intent);
-                    }
-//                    Intent intent=new Intent(getApplicationContext(),MainActivity.class);
-//                    intent.putExtra("Status",currentstatus);
-                    Toast.makeText(Signup.this, "welcome"+" "+currentRole.toString(), Toast.LENGTH_SHORT).show();
 
-                    String demoName = "Developer";
-
-                    AddUSerDataToRealtime(uid,demoName,
+                    AddUSerDataToRealtime(uid,
                             edemail.getText().toString(),
                             edpass.getText().toString());
                     dialog.dismiss();
@@ -161,13 +153,12 @@ public class Signup extends AppCompatActivity {
             }
         });
     }
-    private void AddUSerDataToRealtime(String userid,String name,String email,String pass){
+    private void AddUSerDataToRealtime(String userid,String email,String pass){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Gym App").child("Account Details");
         CurrentStatusDetails obj=new CurrentStatusDetails(
                 userid,
                 currentstatus,
-                name,
                 email,
                 pass);
         myRef.child(userid).setValue(obj).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -184,6 +175,25 @@ public class Signup extends AppCompatActivity {
             }
         });
 
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        PrefManager prefManager1= new PrefManager(getApplicationContext());
+        if (prefManager1.getCurrentstatus().equals("Trainer")){
+            //step 1.
+            Intent intent=new Intent(getApplicationContext(), TrainerCreateProfileActivity.class);
+            startActivity(intent);
+        }else if(prefManager1.getCurrentstatus().equals("User")) {
+            Intent intent = new Intent(getApplicationContext(), UserCreateProfileActivity.class);
+            startActivity(intent);
+        }
+        // step 2
+//        }else if (prefManager1.getCurrentstatus().equals("Admin")){
+//            //step 2
+//            Intent intent=new Intent(getApplicationContext(), AdminDashboard.class);
+//            startActivity(intent);
+//        }
     }
     @Override
     public void onBackPressed() {

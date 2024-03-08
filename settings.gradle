@@ -14,5 +14,5 @@ dependencyResolutionManagement {
 
     }
 }
-rootProject.name = "Power Strentgh"
+rootProject.name = "Gym Managment"
 include ':app'
