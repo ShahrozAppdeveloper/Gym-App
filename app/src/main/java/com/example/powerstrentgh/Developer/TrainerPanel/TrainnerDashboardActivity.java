@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.example.powerstrentgh.Developer.TrainerPanel.Fragment.ListOFUserToTrainnerFragment;
 import com.example.powerstrentgh.Developer.TrainerPanel.Fragment.TrainnerHomeFragment;
 import com.example.powerstrentgh.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -37,7 +38,8 @@ public class TrainnerDashboardActivity extends AppCompatActivity {
                 if (menuId == R.id.hometrainer) {
                     ChangeFragment(new TrainnerHomeFragment());
                 } else if (menuId == R.id.alluser) {
-//                    ChangeFragment(new schedulemanage());
+                    ChangeFragment(new ListOFUserToTrainnerFragment());
+
                 } else if (menuId == R.id.schedulemanage) {
 //                    ChangeFragment(new TeachersListFragment());
                 } else if (menuId == R.id.profiletrainer) {

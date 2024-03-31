@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 
+import com.example.powerstrentgh.Admin.AdminDashboard;
 import com.example.powerstrentgh.Developer.TrainerPanel.TrainerCreateProfileActivity;
 import com.example.powerstrentgh.Developer.UserPanel.UserCreateProfileActivity;
 import com.example.powerstrentgh.ModelCLass.CurrentStatusDetails;
@@ -79,19 +80,19 @@ public class MainActivity extends AppCompatActivity {
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (edemail.getText().toString().isEmpty() ||
-                        edpass.getText().toString().isEmpty()){
+                if (edemail.getText().toString().trim().isEmpty() ||
+                        edpass.getText().toString().trim().isEmpty()){
                     Toast.makeText(MainActivity.this, "Enter Email and password", Toast.LENGTH_SHORT).show();
-                }else if(!edemail.getText().toString().contains("@gmail.com")){
+                }else if(!edemail.getText().toString().trim().contains("@gmail.com")){
                     Toast.makeText(MainActivity.this, "Please Enter valid Email", Toast.LENGTH_SHORT).show();
-                }else if(edpass.getText().toString().length()<6){
+                }else if(edpass.getText().toString().trim().length()<6){
                     Toast.makeText(MainActivity.this, "Please Enter valid Password", Toast.LENGTH_SHORT).show();
                 }
                 else{
                     dialog = new ProgressDialog(MainActivity.this);
                     dialog.setMessage("please wait...");
                     dialog.show();
-                    SignIn(edemail.getText().toString(),edpass.getText().toString());
+                    SignIn(edemail.getText().toString().trim(),edpass.getText().toString().trim());
                 }
             }
         });
@@ -130,14 +131,14 @@ public class MainActivity extends AppCompatActivity {
                                 startActivity(intent);
                                 // next 2nd step
                             }
-//                            }else if (currentStatusDetails.getCurentstatus().equals("Admin")){
-//                                prefManager.setCurrentstatus("Admin");
-//                                prefManager.setUserID(currentUser.toString());
-//                                Intent intent=new Intent(getApplicationContext(),AdminDashboard.class);
-//                                startActivity(intent);
-//
-//                                // 3rd step
-//                            }
+                            else if (currentStatusDetails.getCurentstatus().equals("Admin")){
+                                prefManager.setCurrentstatus("Admin");
+                                prefManager.setUserID(currentUser.toString());
+                                Intent intent=new Intent(getApplicationContext(), AdminDashboard.class);
+                                startActivity(intent);
+
+                                // 3rd step
+                            }
 
                         }
 

@@ -9,6 +9,9 @@
     <color name="white">#FFFFFFFF</color>
     <color name="firstcolor">#C04848</color>
     <color name="secondcolor">#480048</color>
+    <color name="yellow">#FFEB3B</color>
+    <color name="darkblue">#123456</color>
+
 
 
 </resources>

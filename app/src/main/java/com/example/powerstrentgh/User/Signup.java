@@ -22,6 +22,7 @@ import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 
 import com.example.powerstrentgh.Activity.ForgotpasswordActivity;
+import com.example.powerstrentgh.Admin.AdminDashboard;
 import com.example.powerstrentgh.Developer.TrainerPanel.TrainerCreateProfileActivity;
 import com.example.powerstrentgh.Developer.UserPanel.UserCreateProfileActivity;
 import com.example.powerstrentgh.ModelCLass.CurrentStatusDetails;
@@ -62,7 +63,7 @@ public class Signup extends AppCompatActivity {
         ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add("Trainer");
         arrayList.add("User");
-//        arrayList.add("Admin");
+        arrayList.add("Admin");
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, arrayList);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(arrayAdapter);
@@ -103,21 +104,21 @@ public class Signup extends AppCompatActivity {
         btnSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(edpass.getText().toString().isEmpty()||
-                        edemail.getText().toString().isEmpty()
+                if(edpass.getText().toString().trim().isEmpty()||
+                        edemail.getText().toString().trim().isEmpty()
                 ){
                     Toast.makeText(Signup.this, "Enter Detail please", Toast.LENGTH_SHORT).show();
 
-                }else if(edpass.getText().toString().length()<6){
+                }else if(edpass.getText().toString().trim().length()<6){
                     Toast.makeText(Signup.this, "Enter valid password", Toast.LENGTH_SHORT).show();
-                }else if(!edemail.getText().toString().contains("@gmail.com")){
+                }else if(!edemail.getText().toString().trim().contains("@gmail.com")){
                     Toast.makeText(Signup.this, "Enter valid email", Toast.LENGTH_SHORT).show();
                 }
                 else{
                     dialog = new ProgressDialog(Signup.this);
                     dialog.setMessage("please wait...");
                     dialog.show();
-                    Signup(edemail.getText().toString(),edpass.getText().toString(), currentstatus);
+                    Signup(edemail.getText().toString().trim(),edpass.getText().toString().trim(), currentstatus);
 
                 }
             }
@@ -186,6 +187,10 @@ public class Signup extends AppCompatActivity {
             startActivity(intent);
         }else if(prefManager1.getCurrentstatus().equals("User")) {
             Intent intent = new Intent(getApplicationContext(), UserCreateProfileActivity.class);
+            startActivity(intent);
+        }
+        else if(prefManager1.getCurrentstatus().equals("Admin")) {
+            Intent intent = new Intent(getApplicationContext(), AdminDashboard.class);
             startActivity(intent);
         }
         // step 2

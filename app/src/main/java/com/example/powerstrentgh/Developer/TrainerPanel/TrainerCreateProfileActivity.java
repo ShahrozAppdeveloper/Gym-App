@@ -160,7 +160,7 @@ public class TrainerCreateProfileActivity extends AppCompatActivity {
                                         @Override
                                         public void onSuccess(Uri uri) {
                                             String imageurl=uri.toString();
-                                            AddTrainnerDetailToDatabase obj=new AddTrainnerDetailToDatabase(currentuser,name,imageurl,selectedItem);
+                                            AddTrainnerDetailToDatabase obj=new AddTrainnerDetailToDatabase(currentuser,name,"notbook",imageurl,selectedItem,"not proved");
                                             databaseReference.child(currentuser).setValue(obj).addOnCompleteListener(new OnCompleteListener<Void>() {
                                                 @Override
                                                 public void onComplete(@NonNull Task<Void> task) {
