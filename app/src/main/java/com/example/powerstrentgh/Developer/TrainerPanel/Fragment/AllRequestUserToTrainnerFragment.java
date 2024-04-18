@@ -85,9 +85,9 @@ public class AllRequestUserToTrainnerFragment extends Fragment {
                                                    String userID = userDetail.getUserID();
                                                    String userImage = userDetail.getUserimageurl();
                                                    list.add(new AddRequserDetailsToDatabase(userID,username,userImage,reqID));
-                                                   adapter.notifyDataSetChanged();
                                                }
                                            }
+                                           adapter.notifyDataSetChanged();
                                            binding.progressB.setVisibility(View.GONE);
                                        }
 
@@ -101,7 +101,7 @@ public class AllRequestUserToTrainnerFragment extends Fragment {
                            }
                        } else {
                            binding.progressB.setVisibility(View.GONE);
-                           Toast.makeText(requireActivity(), "No Pending Booking found", Toast.LENGTH_SHORT).show();
+                           Toast.makeText(requireActivity(), "No Request  found", Toast.LENGTH_SHORT).show();
                        }
                    }
 

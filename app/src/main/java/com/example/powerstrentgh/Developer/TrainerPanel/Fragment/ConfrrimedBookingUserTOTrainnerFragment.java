@@ -81,8 +81,10 @@ public class ConfrrimedBookingUserTOTrainnerFragment extends Fragment {
                                                 String userID = userDetail.getUserID();
                                                 String userImage = userDetail.getUserimageurl();
                                                 list.add(new AddRequserDetailsToDatabase(userID,username,userImage,reqID));
-                                                adapter.notifyDataSetChanged();
+
                                             }
+                                            adapter.notifyDataSetChanged();
+
                                         }
                                         binding.progressB.setVisibility(View.GONE);
                                     }

@@ -33,10 +33,10 @@ public class UnBookUserTrainnerFragment extends Fragment {
 
     private FragmentUnBookUserTrainnerBinding binding;
     private TrainnerToUserAdapter adapter;
-    ArrayList<AddTrainnerDetailToDatabase> list;
-    DatabaseReference reference;
-    FirebaseAuth mAuth;
-    FirebaseUser user;
+    private ArrayList<AddTrainnerDetailToDatabase> list;
+    private DatabaseReference reference;
+    private FirebaseAuth mAuth;
+    private FirebaseUser user;
     public UnBookUserTrainnerFragment() {
         // Required empty public constructor
     }
@@ -57,24 +57,23 @@ public class UnBookUserTrainnerFragment extends Fragment {
             adapter = new TrainnerToUserAdapter(list, requireActivity(), currentUserId);
             binding.progressB.setVisibility(View.VISIBLE);
 
-            reference = FirebaseDatabase.getInstance().getReference("GymTrainner").child("Details");
+            reference = FirebaseDatabase.getInstance().getReference().child("GymTrainner").child("Details");
 
-            reference.addListenerForSingleValueEvent(new ValueEventListener() {
+            reference.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     list.clear();
-                    if (snapshot.exists()) {
-                        for (DataSnapshot snapshot1 : snapshot.getChildren()) {
-                            AddTrainnerDetailToDatabase model = snapshot1.getValue(AddTrainnerDetailToDatabase.class);
-                            if (model != null && "notbook".equals(model.getBookingstatus()) && "proved".equals(model.getTrainnerstatus())) {
-                                list.add(model);
-                            }
+                    for (DataSnapshot snapshot1 : snapshot.getChildren()) {
+                        AddTrainnerDetailToDatabase model = snapshot1.getValue(AddTrainnerDetailToDatabase.class);
+                        if (model != null && "notbook".equals(model.getBookingstatus()) && "proved".equals(model.getTrainnerstatus())) {
+                            list.add(model);
                         }
-                        binding.progressB.setVisibility(View.GONE);
-                        adapter.notifyDataSetChanged();
-                    } else {
-                        binding.progressB.setVisibility(View.GONE);
-                        Toast.makeText(requireActivity(), "No Trainner found", Toast.LENGTH_SHORT).show();
+                    }
+                    adapter.notifyDataSetChanged();
+                    binding.progressB.setVisibility(View.GONE);
+
+                    if (list.isEmpty()) {
+                        Toast.makeText(requireActivity(), "No Trainer found", Toast.LENGTH_SHORT).show();
                     }
                 }
 
@@ -91,7 +90,6 @@ public class UnBookUserTrainnerFragment extends Fragment {
             // Handle the case where the user is null
         }
 
-
-        return  binding.getRoot();
+        return binding.getRoot();
     }
 }

@@ -11,11 +11,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.powerstrentgh.Developer.UserPanel.Adapter.SliderAdapter;
+import com.example.powerstrentgh.Developer.UserPanel.UserModelClass.SliderData;
 import com.example.powerstrentgh.R;
 import com.example.powerstrentgh.SharedPrefPkg.PrefManager;
 import com.example.powerstrentgh.User.Signup;
 import com.example.powerstrentgh.databinding.FragmentTrainerHomeBinding;
 import com.google.firebase.auth.FirebaseAuth;
+import com.smarteist.autoimageslider.SliderView;
+
+import java.util.ArrayList;
 
 
 public class TrainnerHomeFragment extends Fragment {
@@ -33,6 +38,19 @@ public class TrainnerHomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentTrainerHomeBinding.inflate(getLayoutInflater(),container,false);
+        ArrayList<SliderData> sliderDataArrayList = new ArrayList<>();
+
+        sliderDataArrayList.add(new SliderData(R.drawable.header_viewer));
+        sliderDataArrayList.add(new SliderData(R.drawable.header_viewer));
+        sliderDataArrayList.add(new SliderData(R.drawable.header_viewer));
+        sliderDataArrayList.add(new SliderData(R.drawable.header_viewer));
+
+        SliderAdapter adapter = new SliderAdapter(requireActivity(), sliderDataArrayList);
+        binding.slider.setAutoCycleDirection(SliderView.LAYOUT_DIRECTION_LTR);
+        binding.slider.setSliderAdapter(adapter);
+        binding.slider.setScrollTimeInSec(3);
+        binding.slider.setAutoCycle(true);
+        binding.slider.startAutoCycle();
         Logout();
         return binding.getRoot();
     }

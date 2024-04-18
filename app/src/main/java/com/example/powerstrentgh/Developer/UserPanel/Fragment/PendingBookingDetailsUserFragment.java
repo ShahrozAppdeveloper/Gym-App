@@ -77,8 +77,9 @@ public class PendingBookingDetailsUserFragment extends Fragment {
                                             AddTrainnerDetailToDatabase trainerDetail = snapshot.getValue(AddTrainnerDetailToDatabase.class);
                                             if (trainerDetail != null) {
                                                 list.add(trainerDetail);
-                                                adapter.notifyDataSetChanged();
                                             }
+                                            adapter.notifyDataSetChanged();
+
                                         }
                                         binding.progressB.setVisibility(View.GONE);
                                     }

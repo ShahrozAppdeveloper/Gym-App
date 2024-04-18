@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.powerstrentgh.Admin.AdminAdapter.AdminTrainnerAdapter;
+import com.example.powerstrentgh.Admin.AdminAdapter.ProveTrainnerAdminAdapter;
 import com.example.powerstrentgh.Developer.TrainerPanel.AddTrainnerDetailToDatabase;
 import com.example.powerstrentgh.R;
 import com.example.powerstrentgh.databinding.FragmentProvedTrainnerToAdminfragmentBinding;
@@ -26,7 +27,7 @@ import java.util.ArrayList;
 
 public class ProvedTrainnerToAdminfragment extends Fragment {
    private FragmentProvedTrainnerToAdminfragmentBinding binding;
-    private AdminTrainnerAdapter adapter;
+    private ProveTrainnerAdminAdapter adapter;
     ArrayList<AddTrainnerDetailToDatabase> list;
     DatabaseReference reference;
 
@@ -43,7 +44,7 @@ public class ProvedTrainnerToAdminfragment extends Fragment {
         binding = FragmentProvedTrainnerToAdminfragmentBinding.inflate(getLayoutInflater(),container,false);
         list = new ArrayList<>();
 
-        adapter = new AdminTrainnerAdapter(list, requireActivity());
+        adapter = new ProveTrainnerAdminAdapter(list, requireActivity());
         binding.progressB.setVisibility(View.VISIBLE);
 
         reference = FirebaseDatabase.getInstance().getReference("GymTrainner").child("Details");
