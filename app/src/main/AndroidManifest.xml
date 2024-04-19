@@ -12,6 +12,11 @@
         android:theme="@style/Theme.PowerStrentgh"
         tools:targetApi="31">
         <activity
+            android:name=".Developer.UserPanel.VideoActivity"
+            android:exported="true" >
+
+        </activity>
+        <activity
             android:name=".Developer.TrainerPanel.TrainnerChatActivity"
             android:exported="false" />
         <activity

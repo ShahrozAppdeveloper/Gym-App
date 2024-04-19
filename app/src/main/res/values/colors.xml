@@ -12,6 +12,8 @@
     <color name="yellow">#FFEB3B</color>
     <color name="darkblue">#123456</color>
 
+    <color name="edit_txt_bg">#F5F8FA</color>
+    <color name="hint_color">#C4C4C4</color>
 
 
 </resources>

@@ -1,6 +1,7 @@
 package com.example.powerstrentgh.Developer.UserPanel.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import com.bumptech.glide.Glide;
 import com.example.powerstrentgh.Developer.TrainerPanel.AddTrainnerDetailToDatabase;
 import com.example.powerstrentgh.Developer.UserPanel.UserModelClass.ExceriseImageModelClass;
 import com.example.powerstrentgh.Developer.UserPanel.UserModelClass.MemberBookingDetails;
+import com.example.powerstrentgh.Developer.UserPanel.VideoActivity;
 import com.example.powerstrentgh.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -53,8 +55,14 @@ public class ImageToUserAdapter extends RecyclerView.Adapter<ImageToUserAdapter.
         Glide.with(context).load(data.getImage())
                 .into(holder.Img);
 
+        holder.tvname.setText(data.getName());
 
-
+       holder.btnbook.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               context.startActivity(new Intent(context, VideoActivity.class).putExtra("videoname",data.getName()));
+           }
+       });
 
     }
 
@@ -68,12 +76,14 @@ public class ImageToUserAdapter extends RecyclerView.Adapter<ImageToUserAdapter.
         ImageView Img;
 
         CardView btnbook;
+        TextView tvname;
 
         public TeacherStudentListViewHolder(@NonNull View itemView) {
             super(itemView);
 
             Img = itemView.findViewById(R.id.imageexID);
-            btnbook = itemView.findViewById(R.id.btnbookID);
+            btnbook = itemView.findViewById(R.id.cardviewID);
+            tvname = itemView.findViewById(R.id.tvnameID);
 
         }
     }
