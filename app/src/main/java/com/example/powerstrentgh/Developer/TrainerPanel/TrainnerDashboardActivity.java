@@ -39,7 +39,6 @@ public class TrainnerDashboardActivity extends AppCompatActivity {
                     ChangeFragment(new TrainnerHomeFragment());
                 } else if (menuId == R.id.alluser) {
                     ChangeFragment(new ListOFUserToTrainnerFragment());
-
                 } else if (menuId == R.id.schedulemanage) {
 //                    ChangeFragment(new TeachersListFragment());
                 } else if (menuId == R.id.profiletrainer) {

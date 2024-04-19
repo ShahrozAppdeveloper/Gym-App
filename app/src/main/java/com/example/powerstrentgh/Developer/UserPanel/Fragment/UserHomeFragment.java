@@ -42,9 +42,9 @@ public class UserHomeFragment extends Fragment {
         ArrayList<SliderData> sliderDataArrayList = new ArrayList<>();
 
         sliderDataArrayList.add(new SliderData(R.drawable.header_viewer));
+        sliderDataArrayList.add(new SliderData(R.drawable.header));
         sliderDataArrayList.add(new SliderData(R.drawable.header_viewer));
-        sliderDataArrayList.add(new SliderData(R.drawable.header_viewer));
-        sliderDataArrayList.add(new SliderData(R.drawable.header_viewer));
+        sliderDataArrayList.add(new SliderData(R.drawable.header));
 
         SliderAdapter adapter = new SliderAdapter(requireActivity(), sliderDataArrayList);
         binding.slider.setAutoCycleDirection(SliderView.LAYOUT_DIRECTION_LTR);

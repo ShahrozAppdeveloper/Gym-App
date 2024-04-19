@@ -31,15 +31,12 @@ import java.util.ArrayList;
 public class ImageToUserAdapter extends RecyclerView.Adapter<ImageToUserAdapter.TeacherStudentListViewHolder> {
     private ArrayList<ExceriseImageModelClass> mList;
     private Context context;
-    DatabaseReference refmember;
-    FirebaseDatabase database;
-    String currentuserID;
 
 
-    public ImageToUserAdapter(ArrayList<ExceriseImageModelClass> mList, Context context, String userID) {
+
+    public ImageToUserAdapter(ArrayList<ExceriseImageModelClass> mList, Context context) {
         this.mList = mList;
         this.context = context;
-        this.currentuserID = userID;
     }
 
     @NonNull
@@ -56,12 +53,7 @@ public class ImageToUserAdapter extends RecyclerView.Adapter<ImageToUserAdapter.
         Glide.with(context).load(data.getImage())
                 .into(holder.Img);
 
-        holder.btnbook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-            }
-        });
 
 
     }

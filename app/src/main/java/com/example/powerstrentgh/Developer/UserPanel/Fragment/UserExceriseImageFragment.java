@@ -3,6 +3,7 @@ package com.example.powerstrentgh.Developer.UserPanel.Fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,7 +35,17 @@ public class UserExceriseImageFragment extends Fragment {
 
 
         datalist = new ArrayList<>();
+        datalist.add(new ExceriseImageModelClass(R.drawable.header));
+        datalist.add(new ExceriseImageModelClass(R.drawable.header));
+        datalist.add(new ExceriseImageModelClass(R.drawable.header));
+        datalist.add(new ExceriseImageModelClass(R.drawable.header));
+        datalist.add(new ExceriseImageModelClass(R.drawable.header));
+        datalist.add(new ExceriseImageModelClass(R.drawable.header));
 
+         adapter = new ImageToUserAdapter(datalist,requireContext());
+
+        binding.rvimageID.setLayoutManager(new LinearLayoutManager(requireActivity(),LinearLayoutManager.VERTICAL,false));
+        binding.rvimageID.setAdapter(adapter);
         return binding.getRoot();
     }
 }

@@ -1,6 +1,7 @@
 package com.example.powerstrentgh.Developer.UserPanel.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.powerstrentgh.Developer.TrainerPanel.AddTrainnerDetailToDatabase;
+import com.example.powerstrentgh.Developer.UserPanel.MemberChatWithTrainnerActivity;
 import com.example.powerstrentgh.R;
 
 import java.util.ArrayList;
@@ -46,7 +48,10 @@ public class BookedUserToTrainnerAdapter extends RecyclerView.Adapter<BookedUser
         holder.btnmsg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                context.startActivity(new Intent(context, MemberChatWithTrainnerActivity.class)
+                        .putExtra("trainnername",data.getTrainnername())
+                        .putExtra("trainnerImage",data.getTrainnerimageurl())
+                        .putExtra("trainnerId",data.getTrainnerID()));
             }
         });
 

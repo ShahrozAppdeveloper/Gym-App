@@ -40,9 +40,9 @@ public class TrainnerHomeFragment extends Fragment {
         binding = FragmentTrainerHomeBinding.inflate(getLayoutInflater(),container,false);
         ArrayList<SliderData> sliderDataArrayList = new ArrayList<>();
 
+        sliderDataArrayList.add(new SliderData(R.drawable.header));
         sliderDataArrayList.add(new SliderData(R.drawable.header_viewer));
-        sliderDataArrayList.add(new SliderData(R.drawable.header_viewer));
-        sliderDataArrayList.add(new SliderData(R.drawable.header_viewer));
+        sliderDataArrayList.add(new SliderData(R.drawable.header));
         sliderDataArrayList.add(new SliderData(R.drawable.header_viewer));
 
         SliderAdapter adapter = new SliderAdapter(requireActivity(), sliderDataArrayList);
