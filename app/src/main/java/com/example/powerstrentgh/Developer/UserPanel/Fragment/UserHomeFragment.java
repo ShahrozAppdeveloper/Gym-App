@@ -52,24 +52,10 @@ public class UserHomeFragment extends Fragment {
         binding.slider.setScrollTimeInSec(3);
         binding.slider.setAutoCycle(true);
         binding.slider.startAutoCycle();
-        Logout();
         return  binding.getRoot();
     }
     private void Logout(){
-        binding.createtrainerprofilebuttonid.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();
-                ProgressDialog progressDialog=new ProgressDialog(requireContext());
-                progressDialog.setMessage("Signout");
-                progressDialog.show();
-                PrefManager prefManager=new PrefManager(requireContext());
-                prefManager.setCurrentstatus("");
-                progressDialog.dismiss();
-                Toast.makeText(requireContext(), "Signout", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(requireContext(), Signup.class));
-            }
-        });
+
     }
 
 }

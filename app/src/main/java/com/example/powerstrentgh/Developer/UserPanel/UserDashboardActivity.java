@@ -14,6 +14,7 @@ import android.view.WindowManager;
 
 import com.example.powerstrentgh.Developer.UserPanel.Fragment.ExceriseUserImageFragment;
 import com.example.powerstrentgh.Developer.UserPanel.Fragment.ListofTrainnerTouserFragment;
+import com.example.powerstrentgh.Developer.UserPanel.Fragment.MemberUpdateProfileFragment;
 import com.example.powerstrentgh.Developer.UserPanel.Fragment.UserHomeFragment;
 import com.example.powerstrentgh.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -43,8 +44,8 @@ public class UserDashboardActivity extends AppCompatActivity {
                     ChangeFragment(new ListofTrainnerTouserFragment());
                 } else if (menuId == R.id.Workout) {
                     ChangeFragment(new ExceriseUserImageFragment());
-                } else if (menuId == R.id.profiletrainer) {
-//                    ChangeFragment(new StudentProfileFragment());
+                } else if (menuId == R.id.userprofileid) {
+                    ChangeFragment(new MemberUpdateProfileFragment());
                 } else if (menuId == R.id.userschedule) {
 //                    ChangeFragment(new StudentProfileFragment());
                 }  else {

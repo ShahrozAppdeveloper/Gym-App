@@ -11,8 +11,10 @@ import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.example.powerstrentgh.Developer.TrainerPanel.Fragment.CreateWorkoutForMemberFragment;
 import com.example.powerstrentgh.Developer.TrainerPanel.Fragment.ListOFUserToTrainnerFragment;
 import com.example.powerstrentgh.Developer.TrainerPanel.Fragment.TrainnerHomeFragment;
+import com.example.powerstrentgh.Developer.TrainerPanel.Fragment.TrainnerupdateProfileFragment;
 import com.example.powerstrentgh.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -40,9 +42,9 @@ public class TrainnerDashboardActivity extends AppCompatActivity {
                 } else if (menuId == R.id.alluser) {
                     ChangeFragment(new ListOFUserToTrainnerFragment());
                 } else if (menuId == R.id.schedulemanage) {
-//                    ChangeFragment(new TeachersListFragment());
+                    ChangeFragment(new CreateWorkoutForMemberFragment());
                 } else if (menuId == R.id.profiletrainer) {
-//                    ChangeFragment(new StudentProfileFragment());
+                    ChangeFragment(new TrainnerupdateProfileFragment());
                 } else {
 
                 }

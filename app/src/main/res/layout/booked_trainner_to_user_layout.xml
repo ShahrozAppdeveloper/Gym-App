@@ -20,7 +20,7 @@
         >
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/trainnerimageID"
+            android:id="@+id/userimageID"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:src="@drawable/user_pro"
@@ -34,9 +34,9 @@
             android:gravity="center|start"
             android:orientation="vertical"
             android:layout_marginStart="15dp"
-            app:layout_constraintBottom_toBottomOf="@+id/trainnerimageID"
-            app:layout_constraintStart_toEndOf="@+id/trainnerimageID"
-            app:layout_constraintTop_toTopOf="@+id/trainnerimageID">
+            app:layout_constraintBottom_toBottomOf="@+id/userimageID"
+            app:layout_constraintStart_toEndOf="@+id/userimageID"
+            app:layout_constraintTop_toTopOf="@+id/userimageID">
 
             <TextView
                 android:id="@+id/userNameText"
@@ -52,7 +52,7 @@
         <androidx.cardview.widget.CardView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:id="@+id/btnmsgID"
+            android:id="@+id/trainnerbtnmsgID"
             app:cardElevation="2dp"
             app:cardCornerRadius="8dp"
             app:cardBackgroundColor="@color/white"

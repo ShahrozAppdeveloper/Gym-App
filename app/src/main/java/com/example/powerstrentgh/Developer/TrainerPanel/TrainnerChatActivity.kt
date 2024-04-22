@@ -35,11 +35,10 @@ class TrainnerChatActivity : AppCompatActivity() {
         list = ArrayList();
 
 
-
         firebaseDatabase = FirebaseDatabase.getInstance()
-        val receiverintentID = intent.getStringExtra("TeacherUserId")
-        val receivername = intent.getStringExtra("TeacherName")
-        val receiverImage = intent.getStringExtra("TeacherImage")
+        val receiverintentID = intent.getStringExtra("userId")
+        val receivername = intent.getStringExtra("username")
+        val receiverImage = intent.getStringExtra("userImage")
 
         senderID = FirebaseAuth.getInstance().uid.toString()
         binding.teacherChatUserName.text = receivername.toString()
