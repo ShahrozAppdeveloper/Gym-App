@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.powerstrentgh.Developer.UserPanel.Adapter.SliderAdapter;
@@ -52,9 +53,12 @@ public class UserHomeFragment extends Fragment {
         binding.slider.setScrollTimeInSec(3);
         binding.slider.setAutoCycle(true);
         binding.slider.startAutoCycle();
+        String fitnessParagraph = "A fitness app is a powerful tool that seamlessly integrates into our daily lives, serving as a virtual coach and companion on our journey to better health. Whether you're a seasoned athlete or just starting out, these apps offer a plethora of features tailored to individual goals and preferences. From personalized workout routines and nutrition plans to real-time tracking of progress and achievements, they empower users to take control of their fitness journey anytime, anywhere. With the convenience of accessing workouts at home or on the go, coupled with interactive challenges and community support, fitness apps revolutionize the way we approach health and wellness, making it more accessible, engaging, and enjoyable for everyone.";
+
+        binding.fitnessParagraphTextView.setText(fitnessParagraph);
         return  binding.getRoot();
     }
-    private void Logout(){
+    private void Logout(View view){
 
     }
 

@@ -73,7 +73,7 @@ public class BookedUserToTrainnerAdapter extends RecyclerView.Adapter<BookedUser
             super(itemView);
 
             trainnerImg = itemView.findViewById(R.id.trainnerimageID);
-            trainnername = itemView.findViewById(R.id.trainnerNameText);
+            trainnername = itemView.findViewById(R.id.userNameText);
             btnmsg = itemView.findViewById(R.id.btnmsgID);
 
 
